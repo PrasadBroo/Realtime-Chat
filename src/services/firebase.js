@@ -3,15 +3,14 @@ import "firebase/auth";
 
 
 var firebaseConfig = {
-    apiKey: "AIzaSyBeidjyhC5nmk9IxCuUO2YzwA77I29TJxU",
-    authDomain: "fir-login-807c4.firebaseapp.com",
-    databaseURL: "https://fir-login-807c4.firebaseio.com",
-    projectId: "fir-login-807c4",
-    storageBucket: "fir-login-807c4.appspot.com",
-    messagingSenderId: "782150749326",
-    appId: "1:782150749326:web:b8cfadd35124b6f22f0ddf"
+    apiKey: "AIzaSyAkluxZQF94qVir5gboMdWB6isQTV7fDnY",
+    authDomain: "realtime-chat-c1b78.firebaseapp.com",
+    databaseURL: "https://realtime-chat-c1b78.firebaseio.com",
+    projectId: "realtime-chat-c1b78",
+    storageBucket: "realtime-chat-c1b78.appspot.com",
+    messagingSenderId: "612232899709",
+    appId: "1:612232899709:web:5a7fde4b9fd3a6418b1514"
 };
 
 firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
 export const auth = firebase.auth;

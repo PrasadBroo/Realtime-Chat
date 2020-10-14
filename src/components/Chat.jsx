@@ -4,7 +4,7 @@ import "../css/chat.css";
 import ChatMsg from "./chatMsg";
 import "../css/chatmsg.css";
 import sendEffect from "../audios/note.mp3";
-import recievedEffect from "../audios/gotmsg.mp3";
+import receivedEffect from "../audios/gotmsg.mp3";
 import socketIOClient from "../services/socket";
 import { names } from "../names";
 
@@ -18,7 +18,7 @@ class Chat extends Component {
       this.setState(temp);
       window.scrollTo(0, document.body.scrollHeight);
       if (data.uid !== auth().currentUser.uid) {
-        let audio = new Audio(recievedEffect);
+        let audio = new Audio(receivedEffect);
         audio.play();
       }
     });
@@ -46,7 +46,7 @@ class Chat extends Component {
     msg: "",
     allMessages: [],
     btndisabled: true,
-    endpoint: "http://localhost:5000/",
+    endpoint: "https://socket-io--chat-server.herokuapp.com/",
   };
 
   render() {
@@ -61,7 +61,7 @@ class Chat extends Component {
             }
             return (
               <ChatMsg
-                what="recieved"
+                what="received"
                 msg={data.msg}
                 key={i}
                 image={data.img}
