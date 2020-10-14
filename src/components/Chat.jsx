@@ -22,6 +22,12 @@ class Chat extends Component {
         audio.play();
       }
     });
+
+    if (auth().currentUser.displayName === null && auth().currentUser) {
+      auth().currentUser.updateProfile({
+        displayName: names[this.randomNumberInRange(4945, 0)],
+      });
+    }
     this.socket.emit("newUser", { mail: auth().currentUser.displayName });
 
     // this.setState({ isVerifiedUser: auth().currentUser.emailVerified }); //for email verification
@@ -31,12 +37,6 @@ class Chat extends Component {
           1000,
           1
         )}/100/100`,
-      });
-    }
-
-    if (auth().currentUser.displayName === null && auth().currentUser) {
-      auth().currentUser.updateProfile({
-        displayName: names[this.randomNumberInRange(4945, 0)],
       });
     }
   }

@@ -29,8 +29,10 @@ export default function AuthunticateContextProvider(props) {
     if (password !== confirmpassword) return alert("Password Must Be Same");
     try {
       await auth().createUserWithEmailAndPassword(email, password);
-      auth().currentUser.sendEmailVerification();
-      return alert("Email Verification Link Sent,Plz Verify To Continue Use");
+
+      // For Email Verification
+      // auth().currentUser.sendEmailVerification();
+      // return alert("Email Verification Link Sent,Plz Verify To Continue Use");
     } catch (error) {
       return alert(error.code);
     }
