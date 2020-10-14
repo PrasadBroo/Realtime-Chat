@@ -7,14 +7,14 @@ import sendEffect from "../audios/note.mp3";
 import receivedEffect from "../audios/gotmsg.mp3";
 import socketIOClient from "../services/socket";
 import { names } from "../names";
-import { AuthunticateContext } from "../contexts/AuthunticateContext";
-
-
+import Loader from "./Loader";
 
 class Chat extends Component {
   async componentDidMount() {
     const { allMessages } = this.state;
+    this.setState({ loader: false });
     this.socket = socketIOClient(this.state.endpoint);
+    this.setState({ loader: true });
     this.socket.on("msg", (data) => {
       let temp = allMessages;
       temp.push(data);
@@ -45,6 +45,7 @@ class Chat extends Component {
   }
 
   state = {
+    loader: true,
     isVerifiedUser: false,
     msg: "",
     allMessages: [],
@@ -55,6 +56,7 @@ class Chat extends Component {
   render() {
     return (
       <div className="main-model">
+        <Loader hide={this.state.loader} />
         <div className="all-msgs">
           {this.state.allMessages.map((data, i) => {
             if (data.uid === auth().currentUser.uid) {
@@ -72,6 +74,7 @@ class Chat extends Component {
             );
           })}
         </div>
+
         <div className="text-msg">
           <input
             type="text"
