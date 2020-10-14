@@ -24,7 +24,7 @@ class Chat extends Component {
     });
     this.socket.emit("newUser", { mail: auth().currentUser.displayName });
 
-    this.setState({ isVerifiedUser: auth().currentUser.emailVerified });
+    // this.setState({ isVerifiedUser: auth().currentUser.emailVerified }); //for email verification
     if (auth().currentUser.photoURL === null && auth().currentUser) {
       auth().currentUser.updateProfile({
         photoURL: `https://picsum.photos/id/${this.randomNumberInRange(
@@ -105,7 +105,7 @@ class Chat extends Component {
   };
 
   handelSubmit = async () => {
-    if (!this.state.isVerifiedUser) return alert("Plz Verify Your Email");
+    // if (!this.state.isVerifiedUser) return alert("Plz Verify Your Email"); //If you want verified user to chat
     const { msg, btndisabled } = this.state;
     if (btndisabled) return;
     this.socket.emit("chatMessage", {
