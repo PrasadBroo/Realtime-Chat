@@ -7,6 +7,9 @@ import sendEffect from "../audios/note.mp3";
 import receivedEffect from "../audios/gotmsg.mp3";
 import socketIOClient from "../services/socket";
 import { names } from "../names";
+import { AuthunticateContext } from "../contexts/AuthunticateContext";
+
+
 
 class Chat extends Component {
   async componentDidMount() {

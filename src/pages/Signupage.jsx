@@ -10,6 +10,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Loader from "../components/Loader";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Loginpage() {
-  const { user, signup } = useContext(AuthunticateContext);
+  const { user, signup, showloader } = useContext(AuthunticateContext);
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [passwordConfirm, setConfirmPassword] = useState("");
@@ -99,6 +100,7 @@ export default function Loginpage() {
           >
             Sign Up
           </Button>
+          <Loader hide={!showloader} />
         </form>
       </div>
     </Container>

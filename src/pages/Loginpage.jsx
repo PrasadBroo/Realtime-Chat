@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import "../css/Loginpage.css";
 import { Redirect } from "react-router-dom";
 import { AuthunticateContext } from "../contexts/AuthunticateContext";
-
+import Loader from "../components/Loader";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Loginpage() {
-  const { user, login } = useContext(AuthunticateContext);
+  const { user, login, showloader } = useContext(AuthunticateContext);
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   const classes = useStyles();
@@ -85,6 +85,7 @@ export default function Loginpage() {
           >
             Sign In
           </Button>
+          <Loader hide={!showloader} />
         </form>
       </div>
     </Container>

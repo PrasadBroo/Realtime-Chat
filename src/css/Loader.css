@@ -18,6 +18,23 @@
 /* .showLoader{
     display: block;
 } */
+
+
+.loaderWrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: #333;
+    opacity: 0.5;
+}
+
+.hide {
+    display: none;
+}
+
 .hideLoader {
     display: none;
 }

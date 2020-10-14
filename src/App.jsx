@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AuthunticateContextProvider from "./contexts/AuthunticateContext";
-
 import Homepage from "./pages/Homepage";
 import Loginpage from "./pages/Loginpage";
 import Signupage from "./pages/Signupage";
