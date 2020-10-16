@@ -8,9 +8,11 @@ export default function AuthunticateContextProvider(props) {
   const [showloader, setLoader] = useState(false);
 
   useEffect(() => {
+    setLoader(true);
     auth().onAuthStateChanged((user) => {
       if (user) return setUser(user);
-      return setUser(null);
+      setUser(null);
+      return setLoader(false);
     });
   }, []);
   return (
