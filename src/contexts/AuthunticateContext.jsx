@@ -1,3 +1,4 @@
+import cogoToast from "cogo-toast";
 import React, { createContext, useState, useEffect } from "react";
 import { auth } from "../services/firebase";
 export const AuthunticateContext = createContext();
@@ -25,9 +26,11 @@ export default function AuthunticateContextProvider(props) {
       setLoader(true);
       await auth().signInWithEmailAndPassword(email, pass);
       setLoader(false);
+      cogoToast.success("Login Success");
     } catch (error) {
       setLoader(false);
-      return alert(error.code);
+      cogoToast.error(error.code.split("/")[1]);
+      return;
     }
   }
 
@@ -37,11 +40,12 @@ export default function AuthunticateContextProvider(props) {
       setLoader(true);
       await auth().createUserWithEmailAndPassword(email, password);
       setLoader(false);
+      cogoToast.success("Signup Success");
       // For Email Verification
       // auth().currentUser.sendEmailVerification();
       // return alert("Email Verification Link Sent,Plz Verify To Continue Use");
     } catch (error) {
-      alert(error.code);
+      cogoToast.error(error.code.split("/")[1]);
       return setLoader(false);
     }
   }

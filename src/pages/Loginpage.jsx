@@ -11,6 +11,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -33,8 +34,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Loginpage() {
   const { user, login, showloader } = useContext(AuthunticateContext);
-  let [email, setEmail] = useState("");
-  let [password, setPassword] = useState("");
+  const [email, setEmail] = useState(() => {
+    return "";
+  });
+  const [password, setPassword] = useState(() => {
+    return "";
+  });
   const classes = useStyles();
   return user ? (
     <Redirect to="/" />
