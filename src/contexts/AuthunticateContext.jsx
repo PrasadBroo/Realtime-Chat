@@ -35,7 +35,7 @@ export default function AuthunticateContextProvider(props) {
   }
 
   async function signup(email, password, confirmpassword) {
-    if (password !== confirmpassword) return alert("Password Must Be Same");
+    if (password !== confirmpassword) return cogoToast.warn("Password Must Be Same");
     try {
       setLoader(true);
       await auth().createUserWithEmailAndPassword(email, password);
